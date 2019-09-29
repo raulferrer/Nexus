@@ -27,21 +27,21 @@ import RxSwift
 import RxCocoa
 
 public class RxReachability {
-  fileprivate let connectivity: BehaviorRelay<ReachabilityStatus> = BehaviorRelay(value: .notReachable)
-  fileprivate let reachabilityManager = ReachabilityManager()
+  private let connectivity: BehaviorRelay<ReachabilityStatus> = BehaviorRelay(value: .notReachable)
+  private let reachabilityManager = ReachabilityManager()
   
-  public static let shared = RxReachability()
-  
+  static let shared = RxReachability()
   private init() { }
   
   
   /// Connectivity as Observable
-  public func networkWatch() -> Observable<ReachabilityStatus> {
+  func networkWatch() -> Observable<ReachabilityStatus> {
     return self.connectivity.asObservable()
   }
 
+    
   /// Starts monitoring the network availability status
-  public func startMonitoring() {
+  func startMonitoring() {
     self.reachabilityManager?.listener = { status in
       switch status {
       case .notReachable:
@@ -61,7 +61,7 @@ public class RxReachability {
   
   
   /// Stops monitoring the network availability status
-  public func stopMonitoring(){
+  func stopMonitoring(){
     self.reachabilityManager?.stop()
   }
 }

@@ -1,1 +1,1 @@
-struct Nexus {}
+open class Nexus {}
