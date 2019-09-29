@@ -35,13 +35,13 @@ public class RxReachability {
   
   
   /// Connectivity as Observable
-  func networkWatch() -> Observable<ReachabilityStatus> {
+  public func networkWatch() -> Observable<ReachabilityStatus> {
     return self.connectivity.asObservable()
   }
 
     
   /// Starts monitoring the network availability status
-  func startMonitoring() {
+  public func startMonitoring() {
     self.reachabilityManager?.listener = { status in
       switch status {
       case .notReachable:
@@ -61,7 +61,7 @@ public class RxReachability {
   
   
   /// Stops monitoring the network availability status
-  func stopMonitoring(){
+  public func stopMonitoring(){
     self.reachabilityManager?.stop()
   }
 }
