@@ -1,1 +1,1 @@
-open class Nexus {}
+public class Nexus {}
