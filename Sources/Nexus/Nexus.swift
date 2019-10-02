@@ -30,7 +30,7 @@ public class RxReachability {
   private let connectivity: BehaviorRelay<ReachabilityStatus> = BehaviorRelay(value: .notReachable)
   private let reachabilityManager = ReachabilityManager()
   
-  static let shared = RxReachability()
+  static public let shared = RxReachability()
   private init() { }
   
   
