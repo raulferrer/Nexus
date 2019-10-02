@@ -45,14 +45,14 @@ public class RxReachability {
     self.reachabilityManager?.listener = { status in
       switch status {
       case .notReachable:
-        connectivity.accept(.notReachable)
+        self.connectivity.accept(.notReachable)
       case .undefined :
-        connectivity.accept(.notReachable)
+        self.connectivity.accept(.notReachable)
       case .reachable(.wifi):
-        connectivity.accept(.wifi)
+        self.connectivity.accept(.reachable(.wifi))
       case .reachable(.wwan):
-        connectivity.accept(.wwan)
-        connectivity.accept(.notReachable)
+        self.connectivity.accept(.reachable(.wwan))
+        self.connectivity.accept(.notReachable)
       }
     }
     
